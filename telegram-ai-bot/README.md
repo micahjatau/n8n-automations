@@ -41,6 +41,7 @@ This bot demonstrates how to achieve that with a **no-code workflow** using n8n.
 
 ## Screenshots
 ![Workflow Screenshot](./screenshots/workflow.png)  
+![Workflow Screenshot](./screenshots/workflow2.png)  
 ![Demo Chat](./screenshots/demo.png)
 
 ---
