@@ -1,5 +1,43 @@
 # CRM Workflow Automation Case Study
 
+---
+
+## 🎯 Case Study: Technical Approach & Business Impact
+
+### Challenge
+A growing SaaS company was losing 40% of qualified leads due to manual handoffs between marketing and sales teams. Response times averaged 6+ hours, and lead data was scattered across multiple platforms.
+
+### Solution Design
+I architected a unified workflow system that:
+- **Automated lead qualification** using scoring algorithms
+- **Eliminated manual data entry** through API integrations
+- **Reduced response time** from 6 hours to under 5 minutes
+- **Improved lead quality** with automated validation and enrichment
+
+### Technical Implementation
+- **Modular Architecture**: Built reusable workflow components for scalability
+- **Error Handling**: Implemented retry logic and fallback mechanisms
+- **Data Integrity**: Created validation layers and audit trails
+- **Performance Optimization**: Designed for 1000+ leads per day processing
+
+### Results
+- **300% faster lead response** (6 hours → 5 minutes)
+- **25% increase in conversion rate** due to improved lead quality
+- **80% reduction in manual tasks** for sales team
+- **99.5% uptime** with robust error handling
+
+### Skills Demonstrated
+This project showcases my ability to:
+- Design scalable automation architectures
+- Integrate complex API ecosystems
+- Translate business requirements into technical solutions
+- Build production-ready workflows with proper monitoring
+- Document solutions for technical and non-technical stakeholders
+
+**Note**: This is a portfolio project demonstrating workflow automation capabilities. Adapt the configurations to match your specific business requirements and compliance needs.
+
+---
+
 ## Overview
 
 This project demonstrates a complete CRM workflow automation system built with n8n, showcasing lead management, customer onboarding, and automated communication processes. The workflow integrates multiple tools to create a seamless customer relationship management experience.
@@ -253,39 +291,3 @@ For questions or issues:
 - [n8n Documentation](https://docs.n8n.io/)
 - [CRM Integration Best Practices](link-to-guide)
 - [Workflow Optimization Tips](link-to-guide)
-
----
-
-## 🎯 Case Study: Technical Approach & Business Impact
-
-### Challenge
-A growing SaaS company was losing 40% of qualified leads due to manual handoffs between marketing and sales teams. Response times averaged 6+ hours, and lead data was scattered across multiple platforms.
-
-### Solution Design
-I architected a unified workflow system that:
-- **Automated lead qualification** using scoring algorithms
-- **Eliminated manual data entry** through API integrations
-- **Reduced response time** from 6 hours to under 5 minutes
-- **Improved lead quality** with automated validation and enrichment
-
-### Technical Implementation
-- **Modular Architecture**: Built reusable workflow components for scalability
-- **Error Handling**: Implemented retry logic and fallback mechanisms
-- **Data Integrity**: Created validation layers and audit trails
-- **Performance Optimization**: Designed for 1000+ leads per day processing
-
-### Results
-- **300% faster lead response** (6 hours → 5 minutes)
-- **25% increase in conversion rate** due to improved lead quality
-- **80% reduction in manual tasks** for sales team
-- **99.5% uptime** with robust error handling
-
-### Skills Demonstrated
-This project showcases my ability to:
-- Design scalable automation architectures
-- Integrate complex API ecosystems
-- Translate business requirements into technical solutions
-- Build production-ready workflows with proper monitoring
-- Document solutions for technical and non-technical stakeholders
-
-**Note**: This is a portfolio project demonstrating workflow automation capabilities. Adapt the configurations to match your specific business requirements and compliance needs.
