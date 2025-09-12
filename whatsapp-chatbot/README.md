@@ -85,5 +85,5 @@ cd whatsapp-chatbot
 **Micah Jatau**
 
 * [GitHub Portfolio](https://github.com/micahjatau)
-* [LinkedIn](https://linkedin.com/in/micahjatau)
+* [LinkedIn](https://linkedin.com/in/micah-jatau)
 * Exploring AI, automation, and digital health 🚀
