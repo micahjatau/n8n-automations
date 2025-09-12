@@ -12,6 +12,7 @@ Each folder contains a self-contained project with:
 - [Telegram AI Bot](./telegram-ai-bot) – Chatbot that connects Telegram with OpenAI GPT
 - [Quote Request Automation](./quote-request) – Capture, store, and auto-respond to client quote requests
 - [Payment Automation](./payment-automation) – Crypto payment processing and settlement bot
+- [WhatsApp Chatbot](./whatsapp-chatbot) - A simple chatbot that connects to your whatsapp account
 
 ---
 
