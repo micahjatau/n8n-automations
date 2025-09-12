@@ -34,7 +34,8 @@ flowchart LR
     C --> D[Simple Memory]
     B --> E[Send Message Back to WhatsApp]
 ```
-[Workflow Image](./images/whatsapp-chatbot-workflow.jpg)
+![Workflow Image](./images/whatsapp-chatbot-workflow.jpg)
+
 ---
 
 ## ⚙️ Setup Instructions
