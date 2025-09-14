@@ -141,14 +141,18 @@ graph TD
     K --> P[Smart Notifications]
     L --> Q[Error Notifications]
 ```
-
+##Scrrenshots
+![Workflow Screenshot](./images/workflow.png)
+![Airtable Screenshot](./images/updated-airtable.png)
+![Telegram notification Screenshot](./images/telegram-notification.png)
+'''
 ## Configuration
 
 ### Required Credentials
 - **Telegram API**: Bot token for message handling
 - **Gmail OAuth2**: Email access permissions
 - **Google Sheets OAuth2**: Spreadsheet write access
-- **Notion API**: Database integration
+- **Airtable API**: Database integration
 - **Mistral Cloud API**: AI text extraction
 - **OpenRouter API**: Alternative AI model access
 
