@@ -13,7 +13,7 @@ Each folder contains a self-contained project with:
 - [Quote Request Automation](./quote-request) – Capture, store, and auto-respond to client quote requests
 - [Payment Automation](./payment-automation) – Crypto payment processing and settlement bot
 - [WhatsApp Chatbot](./whatsapp-chatbot) - A simple chatbot that connects to your whatsapp account
-- [Invoice automation workflow](./invoice-automation-workflow) - A workflow that extracts data from uploaded files using OCR + AI, saves it to Google Sheets & Airtable, and sends a notification based on the upload source. 
+- [Invoice automation workflow](./invoice-automation) - A workflow that extracts data from uploaded files using OCR + AI, saves it to Google Sheets & Airtable, and sends a notification based on the upload source. 
 
 ---
 
