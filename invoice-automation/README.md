@@ -3,6 +3,9 @@
 ## Overview
 A comprehensive invoice processing automation system built with n8n that accepts invoices from multiple sources (Telegram, Gmail, web forms), extracts structured data using AI/OCR, and stores results in Google Sheets with intelligent routing and error handling.
 
+**Case Study:** [Read full breakdown here](./case-study.md)
+
+
 ## Architecture
 
 ### Input Sources
