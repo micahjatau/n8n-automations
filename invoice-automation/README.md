@@ -15,7 +15,7 @@ A comprehensive invoice processing automation system built with n8n that accepts
 2. **File Type Detection**: Classifies files as images or documents
 3. **OCR & AI Extraction**: Uses Mistral AI for text extraction and structuring
 4. **Data Validation**: Ensures data quality with fallback regex extraction
-5. **Multi-Storage Output**: Saves to Google Sheets, Notion, and external APIs
+5. **Multi-Storage Output**: Saves to Google Sheets and Airtable
 
 ## Key Components
 
