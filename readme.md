@@ -59,7 +59,7 @@ I’m **Dr. Micah Jatau**, an AI Automation & Workflow Specialist.
 I design n8n systems that **extract, validate, and deliver data reliably** — with full error handling, deduplication, and monitoring.  
 
 - Specialized in: Web scraping | Data pipelines | Chatbots | API integrations  
-- Portfolio website: [micahjatau.github.io](https://micahjatau.github.io)  
+- Portfolio website: [micahjatau.github.io]([https://micahjatau.github.io](https://github.com/micahjatau/n8n-automations))  
 
 ---
 
