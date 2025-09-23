@@ -1,88 +1,66 @@
-# Enhanced Web Scraping & RAG Workflow (n8n + Supabase + Mistral)
+# Enhanced Web Scraping & RAG Workflow  
+> **Built with n8n + Supabase + Mistral + Firecrawl**
 
-This workflow automates **web scraping, processing, vector storage, and RAG-powered chatbot responses**.  
-It is built in **n8n**, using **Firecrawl** for crawling, **Supabase** for vector storage, and **Mistral embeddings** for semantic search.
-
----
-
-## 🚀 Features
-
-### 1. **Configuration & Triggers**
-- Manual trigger or Webhook trigger (`/webhook-scrape-trigger`)
-- Adjustable parameters:  
-  - `max_pages` (crawl depth limit)  
-  - `chunk_size` (text chunk length)  
-  - `chunk_overlap` (overlapping context)
-
-### 2. **Web Scraping (Firecrawl)**
-- Smart crawl filtering (skips admin/media/login paths)
-- Depth control & timeout handling
-- Returns structured markdown for each page
-
-### 3. **Processing Intelligence**
-- Filters out low-quality or duplicate content
-- Cleans whitespace, formatting, and line breaks
-- Extracts titles & counts words
-- Tracks metadata for every document
-
-### 4. **Smart Chunking**
-- Paragraph-aware splitting with overlap
-- Configurable chunk sizes
-- Tracks `chunk_index`, `total_chunks`, and timestamps
-
-### 5. **Vector Storage (Supabase)**
-- Embeddings generated via **Mistral Cloud**
-- Inserted into `rag_markdown_enhanced` table
-- Metadata stored alongside embeddings:
-  - `source_url`, `title`, `chunk_index`, `total_chunks`, `processed_at`, `word_count`
-
-### 6. **Summary Alerts**
-- After each run:
-  - Pages scraped  
-  - Documents processed  
-  - Chunks created  
-  - Completion timestamp  
-- Delivered via **Telegram bot**
-
-### 7. **RAG Chatbot**
-- Enhanced AI Agent with:
-  - OpenRouter LLM (Llama 3.1 70B)  
-  - Supabase vector search (`semantic_search_enhanced`)  
-  - Query embeddings with Mistral  
-  - Reranking & context-aware responses  
-  - Source attribution in answers
+This workflow automates **web scraping, markdown processing, smart chunking, vector storage, and RAG-powered semantic search**.  
+It uses **n8n** as the automation engine, **Firecrawl** for crawling, **Mistral** for embeddings, and **Supabase** for vector storage and semantic retrieval.
 
 ---
 
-## 🛠️ Tech Stack
-- **n8n** (workflow engine)
-- **Firecrawl API** (web scraping)
-- **Supabase + pgvector** (vector storage)
-- **Mistral Cloud** (embeddings)
-- **OpenRouter API** (LLM responses)
-- **Telegram API** (alerts & chatbot interface)
+## 📦 Features
+
+### Workflow Capabilities
+- Scrape entire websites with structured markdown
+- Filter & clean content before embedding
+- Smart chunking with overlap
+- Embedding via Mistral Cloud
+- Store in Supabase with rich metadata
+- Chatbot-ready semantic search
+- Telegram summaries for each run
 
 ---
 
-## ⚙️ Setup
+## 🧱 Metadata Fields
+Each chunk is stored with the following metadata for full traceability:
+- `source_url`
+- `title`
+- `chunk_index`
+- `total_chunks`
+- `word_count`
+- `processed_at`
 
-### 1. Supabase
+---
+
+## 🔁 Workflow Steps
+
+1. **Trigger** — Webhook or manual
+2. **Crawler** — Firecrawl API
+3. **Status Check** — Wait node until crawl completes
+4. **Processing** — Filter and clean scraped content
+5. **Chunking** — Paragraph-aware semantic splitting
+6. **Embeddings** — Mistral Cloud API
+7. **Storage** — Supabase `rag_markdown_enhanced` table
+8. **Alerts** — Telegram notification with summary
+9. **Chatbot** — Semantic retrieval via `semantic_search_enhanced`
+
+---
+
+## 🛠️ Supabase Schema
+
 ```sql
 create extension if not exists vector;
 
 create table rag_markdown_enhanced (
-    id bigserial primary key,
-    page_content text not null,
-    source_url text not null,
-    title text,
-    chunk_index int,
-    total_chunks int,
-    word_count int,
-    processed_at timestamptz,
-    embedding vector(1024)
+  id bigserial primary key,
+  page_content text not null,
+  source_url text not null,
+  title text,
+  chunk_index int,
+  total_chunks int,
+  word_count int,
+  processed_at timestamptz,
+  embedding vector(1024)
 );
 
--- Semantic search function
 create or replace function semantic_search_enhanced(
   query_embedding vector(1024),
   match_count int default 5,
@@ -115,46 +93,105 @@ begin
   limit match_count;
 end;
 $$;
-### 2. Environment Variables
-ini
-Copy code
+```
+
+---
+
+## 🔐 Environment Variables
+
+```bash
 N8N_PORT=5678
-SUPABASE_URL=...
-SUPABASE_KEY=...
-MISTRAL_API_KEY=...
-OPENROUTER_API_KEY=...
-TELEGRAM_API_KEY=...
-### 3. Run
-bash
-Copy code
-docker compose up -d
-Access at http://localhost:5678
+SUPABASE_URL=your-supabase-url
+SUPABASE_KEY=your-supabase-service-role-key
+MISTRAL_API_KEY=your-mistral-api-key
+OPENROUTER_API_KEY=your-openrouter-key
+TELEGRAM_API_KEY=your-telegram-bot-token
+```
 
-### 📊 Workflow Overview
-Crawl Website → Firecrawl
+---
 
-Check Crawl Status → Waits until complete
+## 🖼️ Sample Output
 
-Process & Filter Content → Cleans & extracts
+```
+Scraped 5 pages
+Processed 4 documents
+Created 27 vector chunks
+Completed at: 2025-09-23T12:35:41Z
+```
 
-Smart Chunking → Splits into vector-friendly units
+---
 
-Generate Embeddings → Mistral API
+## 💬 Case Study
 
-Store Vectors → Supabase with metadata
+### 🎯 Problem
 
-Scraping Summary → Telegram notification
+The client needed an automated way to:
 
-Enhanced Chatbot → Ask questions via Telegram, powered by RAG
+* Scrape markdown content from websites
+* Clean and structure that content
+* Enable retrieval-augmented generation (RAG) search
+* Run everything with minimal manual effort
 
-✅ Use Cases
-Knowledge base ingestion
+---
 
-Website monitoring
+### 🧪 Solution
 
-Semantic FAQ chatbot
+Built an end-to-end workflow using:
 
-RAG pipeline prototype
+* Firecrawl for deep site scraping
+* n8n for orchestrating the flow
+* Mistral Cloud for generating dense vector embeddings
+* Supabase for vector DB and semantic search
+* Telegram Bot for real-time updates
 
-yaml
-Copy code
+---
+
+### 🔧 Improvements
+
+* Smart chunking by paragraphs
+* Vector search with top-k reranking
+* Telegram summary alerts for completed runs
+* Metadata-enriched storage for analytics
+
+---
+
+### 🧠 RAG Enhancements
+
+* Each query generates a Mistral embedding
+* Vector match using `semantic_search_enhanced` Supabase function
+* Chatbot powered by OpenRouter LLM (e.g., Llama 3.1 70B)
+* Answers grounded with source attribution
+
+---
+
+## 📈 Results
+
+| Metric             | Value          |
+| ------------------ | -------------- |
+| Pages scraped      | 5              |
+| Docs processed     | 4              |
+| Vector chunks made | 27             |
+| Response time      | ~1 minute/run  |
+| Error retries      | ✅ Built-in     |
+| Chatbot readiness  | ✅ Enabled      |
+
+---
+
+## 🔮 Next Steps
+
+* Schedule recurring crawls (e.g. monthly)
+* Ingest PDFs & CSVs
+* Add recency filtering (`processed_at DESC`)
+* Build caching layer for repeated queries
+
+---
+
+## 👨‍💻 Credits
+
+Micah Jatau – Automation Specialist & Builder  
+🔗 [micahjatau.github.io](https://micahjatau.github.io) | [n8n.io](https://n8n.io)
+
+---
+
+**Note:**  
+This workflow is available as an importable JSON in the `Advanced webscraper.json` file. To test or fork this pipeline, load the workflow into your n8n instance and update the credentials accordingly.
