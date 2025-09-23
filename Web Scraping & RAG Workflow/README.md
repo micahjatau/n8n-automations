@@ -127,9 +127,9 @@ Below are example screenshots of the workflow in action:
 
 | Description                          | Screenshot |
 |--------------------------------------|------------|
-| 🔁 Full Workflow Overview            | ![Workflow](./images/advanced webscraper.png) |
+| 🔁 Full Workflow Overview            | ![Workflow](./images/advanced_webscraper.png) |
 | 🧠 Embedding & Supabase Vector Store | ![Vectors](./images/supabase.png) |
-| 📢 Telegram Summary Notification and chat response     | ![Telegram](./images/telegram alert and chat response.png) |
+| 📢 Telegram Summary Notification and chat response     | ![Telegram](./images/telegram_alert_and_chat_response.png) |
 ---
 
 ## 👨‍💻 Credits
