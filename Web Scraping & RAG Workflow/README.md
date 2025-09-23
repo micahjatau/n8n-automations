@@ -115,7 +115,7 @@ begin
   limit match_count;
 end;
 $$;
-2. Environment Variables
+### 2. Environment Variables
 ini
 Copy code
 N8N_PORT=5678
@@ -124,13 +124,13 @@ SUPABASE_KEY=...
 MISTRAL_API_KEY=...
 OPENROUTER_API_KEY=...
 TELEGRAM_API_KEY=...
-3. Run
+### 3. Run
 bash
 Copy code
 docker compose up -d
 Access at http://localhost:5678
 
-📊 Workflow Overview
+### 📊 Workflow Overview
 Crawl Website → Firecrawl
 
 Check Crawl Status → Waits until complete
